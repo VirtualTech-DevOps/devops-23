@@ -3,7 +3,7 @@ root:
       - any-glob-to-any-file: '*'
 
 AnyChange:
-  - changed-file:
+  - changed-files:
       - any-glob-to-any-file: '**'
 
 Documentation:
@@ -11,9 +11,8 @@ Documentation:
       - any-glob-to-any-file: 'docs/*'
 
 terraform:
-  - changed-file:
+  - changed-files:
       - any-glob-to-any-file: 'terraform/**'
-
 
 feature:
   - head-branch: ['^feature', 'feature']
