@@ -1,0 +1,22 @@
+root:
+  - changed-files:
+      - any-glob-to-any-file: '*'
+
+AnyChange:
+  - changed-file:
+      - any-glob-to-any-file: '**'
+
+Documentation:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/*'
+
+terraform:
+  - changed-file:
+      - any-glob-to-any-file: 'terraform/**'
+
+
+feature:
+  - head-branch: ['^feature', 'feature']
+
+release:
+  - base-branch: 'main'

@@ -1,0 +1,23 @@
+# https://docs.github.com/ja/actions/using-workflows/reusing-workflows
+# https://github.com/actions/labeler
+
+name: Reusable workflow example
+
+on:
+  workflow_call:
+    inputs:
+      config-path:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v5
+        with:
+          repo-token: ${{ secrets.token }}
+          configuration-path: ${{ inputs.config-path }}

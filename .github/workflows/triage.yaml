@@ -1,0 +1,16 @@
+# https://docs.github.com/ja/actions/using-workflows/reusing-workflows#example-caller-workflow
+
+name: Call a reusable workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      config-path: .github/labeler.yaml
+    secrets:
+      token: ${{ secrets.github_token }}
