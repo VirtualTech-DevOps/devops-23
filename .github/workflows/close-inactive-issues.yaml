@@ -1,8 +1,3 @@
-# https://docs.github.com/ja/actions/managing-issues-and-pull-requests/closing-inactive-issues
-# https://github.com/actions/stale
-
-name: Close inactive issues
-
 on:
   workflow_dispatch:
   schedule:
@@ -15,13 +10,13 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-      - uses: actions/stale@v9
+      - uses: actions/stale@v5
         with:
-          days-before-issue-stale: 30
-          days-before-issue-close: 14
+          days-before-issue-stale: 1
+          days-before-issue-close: 1
           stale-issue-label: "stale"
-          stale-issue-message: "This issue is stale because it has been open for 30 days with no activity."
-          close-issue-message: "This issue was closed because it has been inactive for 14 days since being marked as stale."
+          stale-issue-message: "このissueはオープンされてから1日が経過し、何の活動もないようです。"
+          close-issue-message: "このissueはstaleとマークされてから1日間活動していないためクローズされました。"
           days-before-pr-stale: -1
           days-before-pr-close: -1
           repo-token: ${{ secrets.GITHUB_TOKEN }}
